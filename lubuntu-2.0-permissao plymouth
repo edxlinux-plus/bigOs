@@ -1,0 +1,15 @@
+ va ate o sistema digite no termonal como root
+
+
+cd /usr/share/plymouth/themes/lubuntu-logo/lubuntu_logo.png
+
+
+digite para ter o arquivo executavel
+
+
+chmod +X lubuntu_logo.png
+
+
+depois digite 
+
+update-initramfs -u   

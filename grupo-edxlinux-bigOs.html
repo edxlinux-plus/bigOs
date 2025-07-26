@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo EDX Linux BigOS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0; /* Remove default body margin */
+            padding: 0; /* Remove default body padding */
+            background: linear-gradient(to right, #8B0000, #00008B); /* Dark Red to Dark Blue Gradient */
+            color: #FFFF00; /* Yellow text */
+        }
+        .container {
+            max-width: 960px;
+            margin: 20px auto; /* Add margin top/bottom and center */
+            background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent black for content background */
+            padding: 25px 35px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        h1, h2, h3 {
+            color: #FFFF00; /* Yellow for headings */
+            border-bottom: 2px solid #FFD700; /* Gold-ish yellow for border */
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        p, li {
+            color: #FFFF00; /* Yellow for paragraphs and list items */
+        }
+        code {
+            background-color: #333333; /* Darker background for code */
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #FF69B4; /* Hot Pink for inline code, distinct from yellow */
+        }
+        pre {
+            background-color: #222222; /* Even darker background for code blocks */
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid #FFD700; /* Gold-ish yellow border */
+            margin-bottom: 20px;
+            color: #FFFF00; /* Yellow for code block text */
+        }
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        a {
+            color: #FF00FF; /* Magenta for links */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .contact-info {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #FFD700;
+            text-align: center;
+        }
+        .contact-info p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo ao Lubuntu BigOS</h1>
+
+        <p>Esta página contém informações importantes sobre a configuração e o ambiente Lubuntu.</p>
+
+        ---
+
+        <h2>Instalação de Componentes Essenciais</h2>
+        <p>Para uma experiência completa, certifique-se de que os seguintes pacotes estejam instalados:</p>
+        <ul>
+            <li><strong>LXDM:</strong> Um gerenciador de exibição leve.</li>
+            <li><strong>Ubiquity Frontend GTK:</strong> A interface gráfica do instalador Ubiquity.</li>
+            <li><strong>Ubiquity Slideshow Lubuntu:</strong> O slideshow de instalação específico para Lubuntu.</li>
+        </ul>
+
+        <h3>Comandos de Instalação no Terminal:</h3>
+        <pre><code>sudo apt install lxdm ubiquity-frontend-gtk ubiquity-slideshow-lubuntu</code></pre>
+        <p>Ou, você pode instalar o Lubuntu completo via Synaptic, que geralmente inclui a maioria desses componentes.</p>
+
+        ---
+
+        <h2>Configuração do Plymouth</h2>
+        <p>O Plymouth é o sistema que exibe a tela de boot gráfica. Para garantir que o logo do Lubuntu seja exibido corretamente, um arquivo específico precisa ter permissões de execução.</p>
+
+        <h3>Tornando o Arquivo Plymouth Executável:</h3>
+        <p>O arquivo <code>/usr/share/plymouth/themes/lubuntu-logo/lubuntu_logo.png</code>, apesar de ser uma imagem, às vezes precisa de permissão de execução para certas configurações do Plymouth. Você pode fazer isso de duas maneiras:</p>
+
+        <h4>Método 1: Comando Direto</h4>
+        <pre><code>sudo chmod +x /usr/share/plymouth/themes/lubuntu-logo/lubuntu_logo.png</code></pre>
+
+        <h4>Método 2: Navegando até o Diretório</h4>
+        <p>Primeiro, vá até o sistema com o comando:</p>
+        <pre><code>cd /usr/share/plymouth/themes/lubuntu-logo</code></pre>
+        <p>E depois use o comando:</p>
+        <pre><code>sudo chmod +x lubuntu_logo.png</code></pre>
+
+        ---
+
+        <h2>Instalando o Pacote Lubuntu-BigOS (Exemplo)</h2>
+        <p>Se você tem um pacote chamado <code>lubuntu-bigOs.tar.gz</code>, siga os passos abaixo para copiá-lo para o sistema e descompactá-lo:</p>
+
+        <h3>Passos para Instalação:</h3>
+        <ol>
+            <li><strong>Baixe o pacote:</strong> Certifique-se de que <code>lubuntu-bigOs.tar.gz</code> esteja no seu diretório atual (ou ajuste o caminho).</li>
+            <li><strong>Copie para o sistema:</strong> Copie o arquivo para <code>/usr/share</code>.</li>
+            <pre><code>sudo cp -r lubuntu-bigOs.tar.gz /usr/share</code></pre>
+            <li><strong>Descompacte:</strong> Navegue até o diretório e descompacte o arquivo.</li>
+            <pre><code>cd /usr/share
+sudo tar -vzxf lubuntu-bigOs.tar.gz</code></pre>
+            <li><strong>Remova o arquivo compactado:</strong> Após a descompactação, você pode remover o arquivo <code>.tar.gz</code> para economizar espaço.</li>
+            <pre><code>sudo rm lubuntu-bigOs.tar.gz</code></pre>
+        </ol>
+
+        <p>Espero que estas informações sejam úteis para sua configuração do Lubuntu BigOS!</p>
+
+        ---
+
+        <h2>Lubuntu BigOS - Instruções Adicionais</h2>
+        <p>Este guia fornece instruções detalhadas para a instalação de componentes, configuração do Plymouth e gerenciamento de arquivos relacionados ao projeto Lubuntu BigOS.</p>
+
+        ---
+
+        <h3>1. Instalação de Pacotes Essenciais</h3>
+        <p>Para garantir que o sistema tenha todos os componentes necessários, você pode instalar os pacotes abaixo usando o terminal ou o Synaptic.</p>
+
+        <h4>Via Terminal:</h4>
+        <pre><code>sudo apt install lxdm ubiquity-frontend-gtk ubiquity-slideshow-lubuntu</code></pre>
+
+        <h4>Via Synaptic:</h4>
+        <p>Se preferir uma interface gráfica, você pode instalar o Lubuntu completo ou procurar por esses pacotes individualmente no gerenciador de pacotes Synaptic.</p>
+
+        ---
+
+        <h3>2. Configuração do Plymouth</h3>
+        <p>O Plymouth é responsável pela tela de inicialização. Para que o tema seja exibido corretamente, é necessário garantir que o arquivo de imagem do logo tenha permissão de execução.</p>
+
+        <p>Torne o arquivo executável com <code>chmod</code>:</p>
+        <pre><code>sudo chmod +x /usr/share/plymouth/themes/lubuntu-logo/lubuntu_logo.png</code></pre>
+
+        <p>Você também pode navegar até o diretório e executar o comando lá:</p>
+        <pre><code>cd /usr/share/plymouth/themes/lubuntu-logo
+sudo chmod +x lubuntu_logo.png</code></pre>
+
+        <p><strong>Nota:</strong> Embora seja um arquivo de imagem, a permissão de execução pode ser necessária para que o Plymouth o processe corretamente como parte do tema.</p>
+
+        ---
+
+        <h3>3. Instalação do Pacote <code>lubuntu-bigOs</code></h3>
+        <p>Siga estes passos para copiar e descompactar o pacote do projeto em seu sistema:</p>
+
+        <ul>
+            <li><strong>Baixar o arquivo:</strong> Certifique-se de que o arquivo <code>lubuntu-bigOs.tar.gz</code> esteja no seu sistema.</li>
+            <li><strong>Copiar para o sistema:</strong></li>
+            <pre><code>sudo cp -r lubuntu-bigOs.tar.gz /usr/share</code></pre>
+            <li><strong>Descompactar o arquivo:</strong></li>
+            <pre><code>cd /usr/share
+sudo tar -vzxf lubuntu-bigOs.tar.gz</code></pre>
+            <li><strong>Remover o arquivo original:</strong></li>
+            <pre><code>sudo rm lubuntu-bigOs.tar.gz</code></pre>
+        </ul>
+
+        ---
+
+        <h3>4. Atualizando o <code>initramfs</code></h3>
+        <p>Para que as alterações no tema do Plymouth entrem em vigor, é crucial atualizar o <code>initramfs</code>.</p>
+        <pre><code>sudo update-initramfs -u</code></pre>
+        <p>Este comando reconstrói a imagem inicial do sistema de arquivos, garantindo que as novas configurações de boot sejam aplicadas na próxima inicialização.</p>
+
+        ---
+
+        <h3>5. Links e Recursos Adicionais</h3>
+        <p>Aqui estão alguns links úteis para o projeto e outros recursos relacionados:</p>
+        <ul>
+            <li>Repositório BigOS no GitHub: <a href="https://github.com/edxlinux-plus/bigOs" target="_blank">https://github.com/edxlinux-plus/bigOs</a></li>
+            <li>Repositório edxlinux-plus: <a href="https://github.com/edxlinux-plus/edxlinux-plus" target="_blank">https://github.com/edxlinux-plus/edxlinux-plus</a></li>
+            <li>Repositório edxpkg: <a href="https://github.com/edxlinux-plus/edxpkg" target="_blank">https://github.com/edxlinux-plus/edxpkg</a></li>
+            <li>Pasta no Google Drive: <a href="https://drive.google.com/drive/folders/15yqJcCKJe-4EUhcc2a9i-x7Fq5zlMgK7?usp=drive_link" target="_blank">Recursos do Projeto BigOS</a></li>
+            <li>Repositório oficial do Ubuntu: <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://archive.ubuntu.com/ubuntu/&ved=2ahUKEwjk2v7WiNqOAxU8qJUCHQYWGo0QFnoECAoQAQ&usg=AOvVaw0msVGq4LMzRxMHPjuHhGfc" target="_blank">https://archive.ubuntu.com/ubuntu/</a></li>
+        </ul>
+
+        <div class="contact-info">
+            <p>Somos parceiros da equipe EDX Linux: EDX OS, Foston Linux, Star Linux, BigOS, Maximoff OS, T OS (ou Triangulo OS), Peppermint OS MD.</p>
+            <p>Entre em contato conosco no Facebook: <a href="https://www.facebook.com/luis.maximoff.14" target="_blank">Perfil Luis Maximoff</a></p>
+            <p>E-mail: <a href="mailto:maximoffluis1@gmail.com">maximoffluis1@gmail.com</a></p>
+        </div>
+    </div>
+</body>
+</html>
